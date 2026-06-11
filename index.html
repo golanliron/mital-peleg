@@ -397,6 +397,87 @@
     margin-bottom: 48px;
   }
 
+  /* ——— SHARED JOURNEY ——— */
+  #journey {
+    background: linear-gradient(180deg, #FFFEF8 0%, #F7FFF9 100%);
+  }
+
+  .journey-intro {
+    max-width: 720px;
+    margin: 0 auto 44px;
+    text-align: center;
+    color: var(--text-mid);
+    font-size: 17px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .journey-card {
+    background: rgba(255,255,255,0.78);
+    border: 1px solid rgba(216,120,153,0.16);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 14px 38px rgba(127,185,154,0.10);
+  }
+
+  .journey-card img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+  }
+
+  .journey-image-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: 260px;
+    background: #FFF8FB;
+  }
+
+  .journey-image-pair img {
+    height: 100%;
+  }
+
+  .journey-content {
+    padding: 24px 26px 28px;
+  }
+
+  .journey-content h3 {
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .journey-content p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .journey-card.journey-extra {
+    display: none;
+  }
+
+  .journey-grid.expanded .journey-card.journey-extra {
+    display: block;
+  }
+
+  .journey-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .journey-more-btn.expanded .gallery-more-arrow {
+    transform: rotate(180deg);
+  }
+
   /* ——— BLESSINGS ——— */
   #blessings { background: #FFFEF8; }
 
@@ -934,6 +1015,17 @@
   @media (max-width: 600px) {
     .form-wrap { padding: 32px 24px; }
     .blessings-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; }
+    .journey-intro {
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .journey-card img { height: 210px; }
+    .journey-image-pair { height: 210px; }
+    .journey-content { padding: 20px 20px 24px; }
+    .journey-content h3 { font-size: 19px; }
+    .journey-content p { font-size: 14px; }
     .gallery-item .gallery-name {
       font-size: 12px;
       line-height: 1.25;
@@ -1016,6 +1108,7 @@
 <nav class="navbar" id="navbar">
   <a class="nav-brand" href="#top">מיטל פלג <span>♥</span></a>
   <ul class="nav-links">
+    <li><a href="#journey">הדרך שעשינו יחד</a></li>
     <li><a href="#blessings">ברכות הצוות</a></li>
     <li><a href="#playlist">פלייליסט</a></li>
     <li><a href="#gallery">תמונות</a></li>
@@ -1028,6 +1121,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
+  <a href="#journey" onclick="closeMenu()">הדרך שעשינו יחד</a>
   <a href="#blessings" onclick="closeMenu()">ברכות הצוות</a>
   <a href="#playlist" onclick="closeMenu()">פלייליסט</a>
   <a href="#gallery" onclick="closeMenu()">תמונות</a>
@@ -1063,6 +1157,130 @@
     ברכות הצוות
     <span class="scroll-arrow"></span>
   </a>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-label">הדרך שלנו</div>
+    <div class="section-flower" aria-hidden="true"></div>
+    <h2 class="section-title">הדרך שעשינו יחד</h2>
+    <p class="journey-intro">
+      יש דרך שלא נמדדת רק בתאריכים או בתמונות. היא נבנית משיחות, יוזמות,
+      תלמידים, צוות, אמונה והרבה רגעים קטנים שהפכו את בית הערבה לבית.
+    </p>
+
+    <div class="journey-grid">
+      <article class="journey-card">
+        <img src="gallery/mital-gallery-02.jpeg" alt="רגע מהדרך המשותפת">
+        <div class="journey-content">
+          <h3>בית ספר שהוא בית</h3>
+          <p>
+            יחד נבנתה תפיסה שבה כל תלמיד ותלמידה מרגישים שרואים אותם,
+            מקשיבים להם ומאמינים ביכולת שלהם לצמוח.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card">
+        <div class="journey-image-pair">
+          <img src="gallery/mital-gallery-06.jpeg" alt="פתיחת בוקר משותפת">
+          <img src="gallery/morning-opening-2.jpg" alt="פתיחת בוקר נוספת">
+        </div>
+        <div class="journey-content">
+          <h3>פתיחות בוקר</h3>
+          <p>
+            פתיחות בוקר משותפות, שבהן כל אחד ואחת מאנשי הצוות,
+            ביום שלהם, מביאים את משנתם החינוכית ואת הקול הייחודי שלהם.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card">
+        <img src="gallery/mital-gallery-04.jpeg" alt="רגע מהדרך המשותפת">
+        <div class="journey-content">
+          <h3>לראות את האדם לפני הכול</h3>
+          <p>
+            לפני הישגים, לפני מספרים ולפני תכניות, עמדה תמיד הבחירה לראות אדם:
+            תלמיד, איש צוות, משפחה וקהילה.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card journey-extra">
+        <img src="gallery/tikkun-olam.jpg" alt="פרויקט תיקון עולם ירושלמי">
+        <div class="journey-content">
+          <h3>תיקון עולם ירושלמי</h3>
+          <p>
+            פרויקט ערכי ביוזמת מיטל, המחבר בין בתי ספר לעשייה משותפת
+            עבור הקהילה וללקיחת אחריות חברתית.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card journey-extra">
+        <img src="gallery/mital-rwanda.png" alt="שליחות חינוכית לרואנדה">
+        <div class="journey-content">
+          <h3>שליחות חינוכית לרואנדה</h3>
+          <p>
+            מיטל במשלחת חינוכית מטעם דרך כפר, מתוך למידה, גיבוש תפיסה
+            ותזכורת לראות את האור גם רחוק מהבית.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card journey-extra">
+        <img src="gallery/team-training.jpg" alt="צוות ההנהלה ביום עיון בדרך כפר">
+        <div class="journey-content">
+          <h3>יום עיון בדרך כפר</h3>
+          <p>
+            צוות ההנהלה ביום למידה מעשיר, שעוצר לרגע את השגרה ומזמין
+            לחשוב, לדייק ולצמוח יחד.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card journey-extra">
+        <img src="gallery/five-dimensions.jpg" alt="תוכנית חמשת הממדים">
+        <div class="journey-content">
+          <h3>חמשת הממדים</h3>
+          <p>
+            כחלק מהתפיסה החינוכית, מיטל וצוות ההנהלה פיתחו תוכנית ליצירת
+            אקלים מיטיב עבור התלמידים והצוות.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card journey-extra">
+        <img src="gallery/outstanding-principal.jpg" alt="סיורים וביקורים מיוחדים בבית הספר">
+        <div class="journey-content">
+          <h3>סיורים וביקורים מיוחדים</h3>
+          <p>
+            בית הספר, בניהולה של מיטל פלג, זכה לארח סיורים וביקורים רבים
+            שבהם הוצגה התפיסה הייחודית של תיכון אורט בית הערבה:
+            חינוך שרואה אדם, קהילה וצמיחה.
+          </p>
+        </div>
+      </article>
+
+      <article class="journey-card">
+        <img src="gallery/mital-gallery-19.jpg" alt="רגע מהדרך המשותפת">
+        <div class="journey-content">
+          <h3>רגעים שהפכו לדרך</h3>
+          <p>
+            פרויקטים, מפגשים, הצלחות קטנות וגדולות, וחיבורים שנולדו לאורך הדרך:
+            כל אלה מספרים את הסיפור של מה שעשינו יחד.
+          </p>
+        </div>
+      </article>
+    </div>
+    <div class="journey-more-wrap">
+      <button class="gallery-more-btn journey-more-btn" type="button" onclick="toggleJourney(this)">
+        <span class="journey-more-text">הצג עוד רגעים מהדרך</span>
+        <span class="gallery-more-arrow">⌄</span>
+      </button>
+    </div>
+  </div>
 </section>
 
 <!-- BLESSINGS -->
@@ -1191,7 +1409,7 @@
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1SkEcGi5MdC_5YHGC4ZlTL1fydfcBDbMxBrSL_XfNOdabzhuJyOrmOJyX8_U_jCo/exec';
   const CLOUDINARY_CLOUD = 'db0n9zxmr';
   const CLOUDINARY_PRESET = 'mital_uploads';
-  const GALLERY_INITIAL_COUNT = 16;
+  const GALLERY_INITIAL_COUNT = 9;
   const STATIC_GALLERY = [
     ...Array.from({ length: 6 }, (_, i) => ({
       name: 'רגעים בלתי נשכחים',
@@ -1380,6 +1598,13 @@
     const grid = document.getElementById('gallery-grid');
     const expanded = grid.classList.toggle('expanded');
     button.querySelector('.gallery-more-text').textContent = expanded ? 'הצג פחות תמונות' : 'הצג את כל התמונות';
+  }
+
+  function toggleJourney(button) {
+    const grid = document.querySelector('.journey-grid');
+    const expanded = grid.classList.toggle('expanded');
+    button.classList.toggle('expanded', expanded);
+    button.querySelector('.journey-more-text').textContent = expanded ? 'הצג פחות רגעים' : 'הצג עוד רגעים מהדרך';
   }
 
   function renderPlaylistItems(items) {
