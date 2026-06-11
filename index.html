@@ -1146,9 +1146,9 @@
       name: 'רגעים בלתי נשכחים',
       photo: `gallery/mital-gallery-${String(i + 1).padStart(2, '0')}.jpeg`
     })),
-    ...Array.from({ length: 23 }, (_, i) => ({
+    ...Array.from({ length: 23 }, (_, i) => i + 7).filter(num => num !== 8).map(num => ({
       name: 'רגעים בלתי נשכחים',
-      photo: `gallery/mital-gallery-${String(i + 7).padStart(2, '0')}.jpg`
+      photo: `gallery/mital-gallery-${String(num).padStart(2, '0')}.jpg`
     }))
   ];
   const HIDDEN_GALLERY_PHOTOS = [
