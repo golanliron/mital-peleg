@@ -541,15 +541,51 @@
     flex-shrink: 0;
   }
 
+  .playlist-cover {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #FFE4EC, #FFF0C7);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .playlist-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .playlist-cover.has-image img { display: block; }
+  .playlist-cover.has-image .playlist-icon { display: none; }
+
+  .playlist-cover .playlist-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: none;
+  }
+
   .playlist-info {
     flex: 1;
   }
 
   .playlist-sender {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
+    color: var(--text-light);
+    margin-top: 3px;
+  }
+
+  .playlist-title {
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 2px;
+    line-height: 1.35;
   }
 
   .playlist-link-text {
@@ -902,7 +938,7 @@
     }
     .playlist-item {
       display: grid;
-      grid-template-columns: 34px 44px 1fr;
+      grid-template-columns: 34px 50px 1fr;
       grid-template-areas:
         "num icon info"
         "open open open";
@@ -920,18 +956,26 @@
       font-size: 14px;
     }
     .playlist-icon {
-      grid-area: icon;
       width: 38px;
       height: 38px;
       font-size: 15px;
+    }
+    .playlist-cover {
+      grid-area: icon;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
     }
     .playlist-info {
       grid-area: info;
       min-width: 0;
       text-align: right;
     }
+    .playlist-title {
+      font-size: 14px;
+    }
     .playlist-sender {
-      font-size: 15px;
+      font-size: 12px;
       margin-bottom: 4px;
     }
     .playlist-link-text {
@@ -1254,6 +1298,7 @@
 
       grid.innerHTML = cards;
       playlistList.innerHTML = songs || '<div class="playlist-empty">עוד אין שירים...</div>';
+      if (songs) hydratePlaylistMetadata();
       if (galleryGrid) galleryGrid.innerHTML = photos;
 
     } catch (e) {
@@ -1318,16 +1363,101 @@
   }
 
   function renderSong(d, num) {
+    const meta = getInitialSongMeta(d.song);
+    const songUrl = escAttr(d.song);
+    const thumb = meta.thumbnail ? `<img src="${escAttr(meta.thumbnail)}" alt="">` : '';
     return `
-      <a href="${d.song}" target="_blank" class="playlist-item" style="animation-delay:${num * 0.07}s">
+      <a href="${songUrl}" target="_blank" class="playlist-item" data-song="${songUrl}" style="animation-delay:${num * 0.07}s">
         <span class="playlist-num">${String(num).padStart(2,'0')}</span>
-        <div class="playlist-icon">♪</div>
+        <div class="playlist-cover${meta.thumbnail ? ' has-image' : ''}">
+          ${thumb}
+          <div class="playlist-icon">♪</div>
+        </div>
         <div class="playlist-info">
-          <div class="playlist-sender">${escHtml(d.name)}</div>
-          <div class="playlist-link-text">${d.song}</div>
+          <div class="playlist-title">${escHtml(meta.title)}</div>
+          <div class="playlist-sender">נשלח על ידי ${escHtml(d.name)}</div>
+          <div class="playlist-link-text">${escHtml(meta.displayUrl)}</div>
         </div>
         <span class="playlist-open">האזנה ←</span>
       </a>`;
+  }
+
+  function getInitialSongMeta(url) {
+    const youtubeId = getYouTubeId(url);
+    if (youtubeId) {
+      return {
+        title: 'שיר מיוטיוב',
+        displayUrl: 'YouTube',
+        thumbnail: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+      };
+    }
+
+    const host = getUrlHost(url);
+    if (host.includes('spotify.com')) return { title: 'שיר מ-Spotify', displayUrl: 'Spotify', thumbnail: '' };
+    return { title: 'שיר מהצוות', displayUrl: host || url, thumbnail: '' };
+  }
+
+  function getYouTubeId(url) {
+    try {
+      const parsed = new URL(url);
+      const host = parsed.hostname.replace(/^www\./, '');
+      if (host === 'youtu.be') return parsed.pathname.slice(1).split('/')[0];
+      if (host.includes('youtube.com')) return parsed.searchParams.get('v') || '';
+    } catch (e) {}
+    return '';
+  }
+
+  function getUrlHost(url) {
+    try {
+      return new URL(url).hostname.replace(/^www\./, '');
+    } catch (e) {
+      return '';
+    }
+  }
+
+  async function hydratePlaylistMetadata() {
+    const items = [...document.querySelectorAll('.playlist-item[data-song]')];
+    await Promise.all(items.map(async item => {
+      const url = item.dataset.song;
+      const titleEl = item.querySelector('.playlist-title');
+      const cover = item.querySelector('.playlist-cover');
+      const img = cover?.querySelector('img');
+
+      try {
+        const meta = await fetchSongMetadata(url);
+        if (!meta) return;
+        if (meta.title) titleEl.textContent = meta.title;
+        if (meta.thumbnail && img) {
+          img.src = meta.thumbnail;
+          cover.classList.add('has-image');
+        }
+      } catch (e) {}
+    }));
+  }
+
+  async function fetchSongMetadata(url) {
+    const providers = [];
+    const host = getUrlHost(url);
+
+    if (host.includes('youtube.com') || host.includes('youtu.be')) {
+      providers.push(`https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(url)}`);
+    }
+    if (host.includes('spotify.com')) {
+      providers.push(`https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`);
+    }
+    providers.push(`https://noembed.com/embed?url=${encodeURIComponent(url)}`);
+
+    for (const endpoint of providers) {
+      try {
+        const res = await fetch(endpoint);
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (data && (data.title || data.thumbnail_url)) {
+          return { title: data.title || '', thumbnail: data.thumbnail_url || '' };
+        }
+      } catch (e) {}
+    }
+    return null;
   }
 
 
