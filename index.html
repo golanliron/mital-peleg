@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מיטל פלג — תודה על הכל</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FFF7F2;
+    --warm-white: #FFFEFC;
+    --blush: #FFE4EC;
+    --rose: #D87899;
+    --rose-deep: #A85478;
+    --gold: #D5A84C;
+    --gold-light: #FFF0C7;
+    --sage: #B9DCC8;
+    --sage-light: #E9F7EF;
+    --text-dark: #3B2732;
+    --text-mid: #6F5861;
+    --text-light: #A98F9A;
+    --border: #F0D3DA;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding-top: 60px;
+  }
+
+  /* ——— HERO ——— */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    background: linear-gradient(160deg, #FFF9F2 0%, #FFEAF1 45%, #EAF7F0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 80% 20%, rgba(255, 211, 154, 0.22) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 500px at 10% 80%, rgba(185, 220, 200, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* איתור פרחוני */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 260px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 260'%3E%3Cg opacity='0.22'%3E%3C!-- ענף שמאל גדול --%3E%3Cline x1='20' y1='200' x2='220' y2='20' stroke='%23C4A0D8' stroke-width='1.5'/%3E%3Cline x1='20' y1='200' x2='60' y2='100' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cline x1='60' y1='100' x2='130' y2='60' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cline x1='130' y1='60' x2='200' y2='30' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cellipse cx='70' cy='88' rx='22' ry='9' transform='rotate(-40 70 88)' fill='%23C4A0D8'/%3E%3Cellipse cx='120' cy='52' rx='24' ry='9' transform='rotate(-55 120 52)' fill='%23C4A0D8'/%3E%3Cellipse cx='185' cy='24' rx='18' ry='8' transform='rotate(-65 185 24)' fill='%23C4A0D8'/%3E%3Cellipse cx='40' cy='145' rx='18' ry='7' transform='rotate(-20 40 145)' fill='%23D4B8E8'/%3E%3Cellipse cx='90' cy='130' rx='14' ry='6' transform='rotate(-35 90 130)' fill='%23D4B8E8'/%3E%3Cellipse cx='160' cy='80' rx='16' ry='6' transform='rotate(-50 160 80)' fill='%23D4B8E8'/%3E%3C!-- פרחים שמאל --%3E%3Ccircle cx='225' cy='16' r='7' fill='%23E8C8F0' opacity='0.8'/%3E%3Ccircle cx='210' cy='30' r='5' fill='%23F0D8E8' opacity='0.7'/%3E%3Ccircle cx='100' cy='22' r='4' fill='%23E8C8F0' opacity='0.6'/%3E%3Ccircle cx='50' cy='70' r='5' fill='%23D4B8E8' opacity='0.5'/%3E%3C!-- ענף שמאל קטן --%3E%3Cline x1='0' y1='130' x2='100' y2='40' stroke='%23D4B0E0' stroke-width='1'/%3E%3Cellipse cx='35' cy='100' rx='14' ry='6' transform='rotate(-30 35 100)' fill='%23D4B0E0'/%3E%3Cellipse cx='75' cy='62' rx='16' ry='6' transform='rotate(-50 75 62)' fill='%23D4B0E0'/%3E%3C!-- ענף ימין גדול --%3E%3Cline x1='1380' y1='200' x2='1180' y2='20' stroke='%23C4A0D8' stroke-width='1.5'/%3E%3Cline x1='1380' y1='200' x2='1340' y2='100' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cline x1='1340' y1='100' x2='1270' y2='60' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cline x1='1270' y1='60' x2='1200' y2='30' stroke='%23C4A0D8' stroke-width='1'/%3E%3Cellipse cx='1330' cy='88' rx='22' ry='9' transform='rotate(40 1330 88)' fill='%23C4A0D8'/%3E%3Cellipse cx='1280' cy='52' rx='24' ry='9' transform='rotate(55 1280 52)' fill='%23C4A0D8'/%3E%3Cellipse cx='1215' cy='24' rx='18' ry='8' transform='rotate(65 1215 24)' fill='%23C4A0D8'/%3E%3Cellipse cx='1360' cy='145' rx='18' ry='7' transform='rotate(20 1360 145)' fill='%23D4B8E8'/%3E%3Cellipse cx='1310' cy='130' rx='14' ry='6' transform='rotate(35 1310 130)' fill='%23D4B8E8'/%3E%3Cellipse cx='1240' cy='80' rx='16' ry='6' transform='rotate(50 1240 80)' fill='%23D4B8E8'/%3E%3C!-- פרחים ימין --%3E%3Ccircle cx='1175' cy='16' r='7' fill='%23E8C8F0' opacity='0.8'/%3E%3Ccircle cx='1190' cy='30' r='5' fill='%23F0D8E8' opacity='0.7'/%3E%3Ccircle cx='1300' cy='22' r='4' fill='%23E8C8F0' opacity='0.6'/%3E%3Ccircle cx='1350' cy='70' r='5' fill='%23D4B8E8' opacity='0.5'/%3E%3C!-- ענף ימין קטן --%3E%3Cline x1='1400' y1='130' x2='1300' y2='40' stroke='%23D4B0E0' stroke-width='1'/%3E%3Cellipse cx='1365' cy='100' rx='14' ry='6' transform='rotate(30 1365 100)' fill='%23D4B0E0'/%3E%3Cellipse cx='1325' cy='62' rx='16' ry='6' transform='rotate(50 1325 62)' fill='%23D4B0E0'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floral-sprig {
+    position: absolute;
+    width: 170px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.72;
+  }
+
+  .floral-sprig::before {
+    content: '';
+    position: absolute;
+    inset: 58px 18px auto 18px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(127,185,154,0.68), transparent);
+    transform: rotate(-24deg);
+  }
+
+  .floral-sprig::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FFD8E3;
+    box-shadow:
+      18px -18px 0 2px #FFF0C7,
+      38px -6px 0 1px #DDF4E8,
+      58px -30px 0 2px #FFE4EC,
+      82px -12px 0 1px #F7D7E5;
+  }
+
+  .floral-sprig span {
+    position: absolute;
+    width: 20px;
+    height: 9px;
+    border-radius: 999px 999px 999px 0;
+    background: rgba(185,220,200,0.72);
+    transform: rotate(-34deg);
+  }
+
+  .floral-sprig span:nth-child(1) { top: 48px; left: 28px; }
+  .floral-sprig span:nth-child(2) { top: 36px; left: 72px; transform: rotate(28deg); }
+  .floral-sprig span:nth-child(3) { top: 68px; left: 100px; background: rgba(255,228,236,0.78); }
+
+  .floral-sprig-1 {
+    top: 150px;
+    right: max(22px, calc(50% - 560px));
+  }
+
+  .floral-sprig-2 {
+    bottom: 118px;
+    left: max(18px, calc(50% - 560px));
+    transform: scaleX(-1) rotate(6deg);
+  }
+
+  .section-flower {
+    position: relative;
+    width: 150px;
+    height: 38px;
+    margin: -16px auto 30px;
+    opacity: 0.82;
+    background-image: url("data:image/svg+xml,%3Csvg width='150' height='38' viewBox='0 0 150 38' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 25 C43 12, 105 12, 132 25' stroke='%237FB99A' stroke-width='1.4' opacity='.55'/%3E%3Cpath d='M46 19 C40 15, 35 14, 30 17' stroke='%237FB99A' stroke-width='1.2' opacity='.55'/%3E%3Cpath d='M101 19 C108 15, 114 14, 120 18' stroke='%237FB99A' stroke-width='1.2' opacity='.55'/%3E%3Cellipse cx='36' cy='17' rx='8' ry='4' fill='%23B9DCC8' opacity='.5' transform='rotate(-24 36 17)'/%3E%3Cellipse cx='114' cy='17' rx='8' ry='4' fill='%23B9DCC8' opacity='.5' transform='rotate(24 114 17)'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='58' cy='17' r='3' fill='%23D5A84C' opacity='.9'/%3E%3Cellipse cx='58' cy='9' rx='4.5' ry='7' fill='%23FFD8E3'/%3E%3Cellipse cx='58' cy='25' rx='4.5' ry='7' fill='%23FFD8E3'/%3E%3Cellipse cx='50' cy='17' rx='7' ry='4.5' fill='%23FFD8E3'/%3E%3Cellipse cx='66' cy='17' rx='7' ry='4.5' fill='%23FFD8E3'/%3E%3Ccircle cx='92' cy='17' r='3' fill='%23D5A84C' opacity='.9'/%3E%3Cellipse cx='92' cy='9' rx='4.5' ry='7' fill='%23F7D7E5'/%3E%3Cellipse cx='92' cy='25' rx='4.5' ry='7' fill='%23F7D7E5'/%3E%3Cellipse cx='84' cy='17' rx='7' ry='4.5' fill='%23F7D7E5'/%3E%3Cellipse cx='100' cy='17' rx='7' ry='4.5' fill='%23F7D7E5'/%3E%3Ccircle cx='75' cy='14' r='2.5' fill='%23D5A84C' opacity='.75'/%3E%3Cellipse cx='75' cy='8' rx='3.5' ry='5.5' fill='%23E9F7EF'/%3E%3Cellipse cx='75' cy='20' rx='3.5' ry='5.5' fill='%23E9F7EF'/%3E%3Cellipse cx='69' cy='14' rx='5.5' ry='3.5' fill='%23E9F7EF'/%3E%3Cellipse cx='81' cy='14' rx='5.5' ry='3.5' fill='%23E9F7EF'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 40px;
+  }
+
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--blush), var(--sage-light));
+    z-index: 0;
+  }
+
+  .hero-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    border: 4px solid var(--warm-white);
+  }
+
+  .hero-photo-placeholder {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush), var(--sage-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    position: relative;
+    z-index: 1;
+    border: 4px solid var(--warm-white);
+  }
+
+  .hero-tag {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, #D87899, #D5A84C, #7FB99A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .hero-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 10px 24px;
+    font-size: 14px;
+    color: var(--text-mid);
+    backdrop-filter: blur(10px);
+    margin-bottom: 48px;
+  }
+
+  .hero-date .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rose);
+  }
+
+  .hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
+
+  .hero-scroll:hover { color: var(--rose); }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(5px); }
+  }
+
+  /* ——— NAVBAR ——— */
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 60px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .navbar.scrolled { box-shadow: 0 2px 20px rgba(155,123,181,0.1); }
+
+  .nav-brand {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .nav-brand span {
+    color: var(--rose);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+
+  /* המבורגר */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+    z-index: 101;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--rose-deep);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* תפריט מובייל */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    padding: 16px 24px 24px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--rose); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* ——— SECTIONS ——— */
+  section {
+    padding: 80px 24px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  /* ——— BLESSINGS ——— */
+  #blessings { background: #FFFEF8; }
+
+  .blessings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .blessing-card {
+    background: #FFF8FB;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .blessing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(216,120,153,0.16);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .blessing-quote {
+    font-size: 24px;
+    color: var(--rose);
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+  }
+
+  .blessing-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+  }
+
+  .blessing-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .blessing-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .blessing-song {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--rose);
+    text-decoration: none;
+    background: rgba(216,120,153,0.12);
+    border-radius: 100px;
+    padding: 5px 12px;
+    transition: background 0.2s;
+  }
+
+  .blessing-song:hover { background: rgba(216,120,153,0.22); }
+
+  .loading-state {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-light);
+    font-size: 15px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--text-light);
+  }
+
+  .empty-state p {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  /* ——— PLAYLIST ——— */
+  #playlist {
+    background: linear-gradient(135deg, #E9F7EF 0%, #FFF0C7 52%, #FFE4EC 100%);
+  }
+
+  #playlist .section-label { color: #7FB99A; }
+  #playlist .section-title { color: var(--text-dark); }
+  #playlist .section-sub { color: var(--text-mid); }
+
+  .playlist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 48px;
+  }
+
+  .playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(216,120,153,0.18);
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: background 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .playlist-item:hover {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 20px rgba(216,120,153,0.14);
+  }
+
+  .playlist-num {
+    font-size: 13px;
+    color: #D87899;
+    font-weight: 600;
+    min-width: 28px;
+  }
+
+  .playlist-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFE4EC, #FFF0C7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .playlist-info {
+    flex: 1;
+  }
+
+  .playlist-sender {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+
+  .playlist-link-text {
+    font-size: 12px;
+    color: var(--text-light);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 300px;
+  }
+
+  .playlist-open {
+    font-size: 12px;
+    color: #D87899;
+    border: 1px solid rgba(216,120,153,0.4);
+    border-radius: 100px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .playlist-empty {
+    text-align: center;
+    padding: 48px;
+    color: var(--text-light);
+    font-size: 15px;
+  }
+
+  /* ——— FORM ——— */
+  #form-section { background: linear-gradient(180deg, #FFF7F2 0%, #FFEAF1 100%); }
+
+  .form-wrap {
+    max-width: 620px;
+    margin: 0 auto;
+    background: #FFFEFC;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 48px;
+  }
+
+  .form-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 36px;
+  }
+
+  .field {
+    margin-bottom: 24px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-mid);
+    margin-bottom: 8px;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    color: var(--text-dark);
+    background: #FFF9F2;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    direction: rtl;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(216,120,153,0.14);
+  }
+
+  textarea { min-height: 140px; resize: vertical; }
+
+  .char-count {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .field-optional {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-right: 6px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose));
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 32px;
+  }
+
+  .success-msg .success-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .success-msg h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .success-msg p {
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+
+  .error-msg {
+    display: none;
+    background: rgba(181,97,106,0.1);
+    border: 1px solid rgba(181,97,106,0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--rose-deep);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* ——— FOOTER ——— */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    background: var(--warm-white);
+  }
+
+  /* ——— GALLERY ——— */
+  #gallery { background: #F7FFF9; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #E9F7EF, #FFE4EC);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .gallery-item.is-extra {
+    display: none;
+  }
+
+  .gallery-grid.expanded .gallery-item.is-extra {
+    display: block;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(127,185,154,0.18);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-item .gallery-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(42,31,53,0.6));
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 20px 12px 10px;
+    text-align: center;
+  }
+
+  .gallery-empty {
+    text-align: center;
+    padding: 48px;
+    color: var(--text-light);
+    font-size: 15px;
+    grid-column: 1/-1;
+  }
+
+  .gallery-more-wrap {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .gallery-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(216,120,153,0.28);
+    background: rgba(255,255,255,0.76);
+    color: var(--rose-deep);
+    border-radius: 999px;
+    padding: 11px 22px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(216,120,153,0.10);
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .gallery-more-btn:hover {
+    background: var(--warm-white);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(216,120,153,0.14);
+  }
+
+  .gallery-more-arrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+
+  .gallery-grid.expanded .gallery-more-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42,31,53,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 16px;
+    object-fit: contain;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* upload photo field */
+  .photo-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: #FFF9F2;
+  }
+
+  .photo-upload-area:hover { border-color: var(--rose); background: var(--sage-light); }
+
+  .photo-upload-area.has-photo {
+    border-color: var(--rose);
+    background: var(--sage-light);
+  }
+
+  .photo-upload-area input[type=file] { display: none; }
+
+  .upload-icon { font-size: 28px; margin-bottom: 8px; }
+
+  .upload-text { font-size: 14px; color: var(--text-mid); }
+
+  .upload-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 8px;
+    display: block;
+  }
+
+  .upload-progress {
+    font-size: 13px;
+    color: var(--rose);
+    margin-top: 8px;
+  }
+
+  /* ——— RESPONSIVE ——— */
+  @media (max-width: 600px) {
+    .form-wrap { padding: 32px 24px; }
+    .blessings-grid { grid-template-columns: 1fr; }
+    .playlist-list {
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .playlist-item {
+      display: grid;
+      grid-template-columns: 34px 44px 1fr;
+      grid-template-areas:
+        "num icon info"
+        "open open open";
+      align-items: center;
+      gap: 10px 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .playlist-num {
+      grid-area: num;
+      min-width: 0;
+      text-align: center;
+      font-size: 14px;
+    }
+    .playlist-icon {
+      grid-area: icon;
+      width: 38px;
+      height: 38px;
+      font-size: 15px;
+    }
+    .playlist-info {
+      grid-area: info;
+      min-width: 0;
+      text-align: right;
+    }
+    .playlist-sender {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .playlist-link-text {
+      max-width: 100%;
+      font-size: 12px;
+      direction: ltr;
+      text-align: right;
+    }
+    .playlist-open {
+      grid-area: open;
+      justify-self: stretch;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 13px;
+      background: rgba(255,255,255,0.58);
+    }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .floral-sprig {
+      width: 118px;
+      height: 92px;
+      opacity: 0.52;
+    }
+    .floral-sprig-1 { top: 106px; right: 12px; }
+    .floral-sprig-2 { bottom: 88px; left: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">מיטל פלג <span>♥</span></div>
+  <ul class="nav-links">
+    <li><a href="#blessings">ברכות הצוות</a></li>
+    <li><a href="#playlist">פלייליסט</a></li>
+    <li><a href="#gallery">תמונות</a></li>
+    <li><a href="#form">הוסיפו ברכה</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="תפריט">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#blessings" onclick="closeMenu()">ברכות הצוות</a>
+  <a href="#playlist" onclick="closeMenu()">פלייליסט</a>
+  <a href="#gallery" onclick="closeMenu()">תמונות</a>
+  <a href="#form" onclick="closeMenu()">הוסיפו ברכה</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="floral-sprig floral-sprig-1" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="floral-sprig floral-sprig-2" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="hero-photo-wrap">
+    <!-- החליפי את הנתיב לתמונה אמיתית -->
+    <img id="hero-img" src="mital.jpg" alt="מיטל פלג" class="hero-photo"
+      onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex'">
+    <div id="hero-placeholder" class="hero-photo-placeholder" style="display:none">🌸</div>
+  </div>
+
+  <div class="hero-tag">אורט בית הערבה</div>
+  <h1 class="hero-title">
+    מיטל פלג,<br>
+    <span>תודה על הכל</span>
+  </h1>
+  <p class="hero-sub">
+    מנהלת שהפכה את בית הספר לבית.<br>
+    הגיע הזמן לדף חדש.
+  </p>
+  <div class="hero-date">
+    <span class="dot"></span>
+    יוני 2026
+    <span class="dot"></span>
+  </div>
+  <a href="#blessings" class="hero-scroll">
+    ברכות הצוות
+    <span class="scroll-arrow"></span>
+  </a>
+</section>
+
+<!-- BLESSINGS -->
+<section id="blessings">
+  <div class="container">
+    <div class="section-label">מהלב</div>
+    <div class="section-flower" aria-hidden="true"></div>
+    <h2 class="section-title">ברכות הצוות</h2>
+    <p class="section-sub">הנה כל מה שרצינו לומר לך</p>
+
+    <div class="blessings-grid" id="blessings-grid">
+      <div class="loading-state">טוענת ברכות...</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYLIST -->
+<section id="playlist">
+  <div class="container">
+    <div class="section-label">שירים מהצוות</div>
+    <div class="section-flower" aria-hidden="true"></div>
+    <h2 class="section-title">הפלייליסט שלה</h2>
+    <p class="section-sub">הפלייליסט שצוות אורט בית הערבה בחר לך</p>
+
+    <div class="playlist-list" id="playlist-list">
+      <div class="playlist-empty">הפלייליסט עוד מתמלא...</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label">רגעים</div>
+    <div class="section-flower" aria-hidden="true"></div>
+    <h2 class="section-title">גלריית התמונות</h2>
+    <p class="section-sub">רגעים בלתי נשכחים</p>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-empty">הגלריה עוד מתמלאת...</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- FORM -->
+<section id="form-section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-label">השאירו חותם</div>
+      <div class="section-flower" aria-hidden="true"></div>
+      <h2 class="section-title">כתבו לה ברכה</h2>
+      <p class="section-sub">ושלחו שיר שמייצג עבורכם את מיטל</p>
+    </div>
+
+    <div class="form-wrap">
+      <div id="form-content">
+        <div class="field">
+          <label for="name">שם מלא</label>
+          <input type="text" id="name" placeholder="מה שמך?" maxlength="80">
+        </div>
+
+        <div class="field">
+          <label for="blessing">הברכה שלי
+          </label>
+          <textarea id="blessing" placeholder="כתבי מה בלבך..." maxlength="600"></textarea>
+          <div class="char-count"><span id="char-count">0</span> / 600</div>
+        </div>
+
+        <div class="field">
+          <label for="song">
+            לינק לשיר
+            <span class="field-optional">(אופציונלי — Spotify, YouTube, כל לינק)</span>
+          </label>
+          <input type="url" id="song" placeholder="https://..." dir="ltr">
+        </div>
+
+        <div class="field">
+          <label>
+            תמונה
+            <span class="field-optional">(אופציונלי)</span>
+          </label>
+          <div class="photo-upload-area" id="upload-area" onclick="document.getElementById('photo-input').click()">
+            <input type="file" id="photo-input" accept="image/*" onchange="handlePhotoSelect(this)">
+            <div id="upload-placeholder">
+              <div class="upload-icon">📷</div>
+              <div class="upload-text">לחצו להעלאת תמונה</div>
+            </div>
+            <div id="upload-preview-wrap" style="display:none">
+              <img class="upload-preview" id="upload-preview" src="" alt="">
+              <div class="upload-text" id="upload-filename"></div>
+            </div>
+            <div class="upload-progress" id="upload-progress"></div>
+          </div>
+        </div>
+
+        <button class="btn-submit" id="submit-btn" onclick="submitForm()">
+          שלח את הברכה שלי
+        </button>
+
+        <div class="error-msg" id="error-msg">
+          משהו השתבש. נסי שוב בעוד רגע.
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon">🌸</div>
+        <h3>הברכה נשלחה!</h3>
+        <p>תודה. הברכה שלך מופיעה עכשיו בדף.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  נבנה באהבה עבור מיטל פלג — יוני 2026
+</footer>
+
+<script>
+  // ===== CONFIG =====
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1SkEcGi5MdC_5YHGC4ZlTL1fydfcBDbMxBrSL_XfNOdabzhuJyOrmOJyX8_U_jCo/exec';
+  const CLOUDINARY_CLOUD = 'db0n9zxmr';
+  const CLOUDINARY_PRESET = 'mital_uploads';
+  const GALLERY_INITIAL_COUNT = 16;
+  const STATIC_GALLERY = [
+    ...Array.from({ length: 6 }, (_, i) => ({
+      name: 'רגעים בלתי נשכחים',
+      photo: `gallery/mital-gallery-${String(i + 1).padStart(2, '0')}.jpeg`
+    })),
+    ...Array.from({ length: 23 }, (_, i) => ({
+      name: 'רגעים בלתי נשכחים',
+      photo: `gallery/mital-gallery-${String(i + 7).padStart(2, '0')}.jpg`
+    }))
+  ];
+  const HIDDEN_GALLERY_PHOTOS = [
+    'https://res.cloudinary.com/db0n9zxmr/image/upload/v1781163302/b5i4sxz2wwe8cppxc1rn.png'
+  ];
+  const HIDDEN_SONGS = [
+    'https://www.youtube.com/watch?v=dU5jWriAGmY&list=RDdU5jWriAGmY&start_radio=1'
+  ];
+  const HIDDEN_BLESSINGS = [
+    { timestamp: '11.6.2026, 10:33:54', name: "נכק'קנעכ" },
+    { timestamp: '11.6.2026, 10:35:05', name: 'לירון גולן' },
+    { timestamp: '11.6.2026, 12:25:01', name: 'לירון גולן' }
+  ];
+  // ==================
+
+  let uploadedPhotoUrl = '';
+
+  // ===== PHOTO UPLOAD =====
+  function handlePhotoSelect(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      document.getElementById('upload-preview').src = e.target.result;
+      document.getElementById('upload-filename').textContent = file.name;
+      document.getElementById('upload-placeholder').style.display = 'none';
+      document.getElementById('upload-preview-wrap').style.display = 'block';
+      document.getElementById('upload-area').classList.add('has-photo');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  async function uploadPhotoToCloudinary(file) {
+    if (!file) return '';
+    const prog = document.getElementById('upload-progress');
+    prog.textContent = 'מעלה תמונה...';
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_PRESET);
+    try {
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (!res.ok || !data.secure_url) throw new Error(data.error?.message || 'upload failed');
+      prog.textContent = '';
+      return data.secure_url;
+    } catch (e) {
+      prog.textContent = 'שגיאה בהעלאת התמונה';
+      return '';
+    }
+  }
+
+  // ===== LIGHTBOX =====
+  function openLightbox(url) {
+    document.getElementById('lightbox-img').src = url;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
+  // char counter
+  const blessingEl = document.getElementById('blessing');
+  const charCount = document.getElementById('char-count');
+  blessingEl.addEventListener('input', () => {
+    charCount.textContent = blessingEl.value.length;
+  });
+
+  // ===== LOAD BLESSINGS =====
+  async function loadBlessings() {
+    const grid = document.getElementById('blessings-grid');
+    const playlistList = document.getElementById('playlist-list');
+    const galleryGrid = document.getElementById('gallery-grid');
+
+    if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+      grid.innerHTML = '<div class="empty-state"><p>הברכות יופיעו כאן אחרי חיבור Google Sheets</p></div>';
+      playlistList.innerHTML = '<div class="playlist-empty">הפלייליסט יתמלא בקרוב...</div>';
+      if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
+      return;
+    }
+
+    try {
+      const res = await fetch(APPS_SCRIPT_URL + '?action=get');
+      const rawData = await res.json();
+      const allData = Array.isArray(rawData) ? rawData : (rawData.data || []);
+      const data = allData.filter(item => !isHiddenBlessing(item));
+
+      if (!data.length) {
+        grid.innerHTML = '<div class="empty-state"><p>עוד אין ברכות — היה הראשון!</p></div>';
+        playlistList.innerHTML = '<div class="playlist-empty">הפלייליסט עוד מתמלא...</div>';
+        if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
+        return;
+      }
+
+      const withSong = data.filter(d => d.song && !HIDDEN_SONGS.includes(d.song));
+      const withPhoto = data.filter(d => d.photo && !HIDDEN_GALLERY_PHOTOS.includes(d.photo));
+      const cards = data.map((d, i) => renderCard(d, i)).join('');
+      const songs = withSong.map((d, i) => renderSong(d, i + 1)).join('');
+      const photos = renderGalleryItems([...STATIC_GALLERY, ...withPhoto]);
+
+      grid.innerHTML = cards;
+      playlistList.innerHTML = songs || '<div class="playlist-empty">עוד אין שירים...</div>';
+      if (galleryGrid) galleryGrid.innerHTML = photos;
+
+    } catch (e) {
+      grid.innerHTML = '<div class="empty-state"><p>לא הצלחנו לטעון את הברכות כרגע</p></div>';
+      playlistList.innerHTML = '<div class="playlist-empty">לא הצלחנו לטעון את הפלייליסט כרגע</div>';
+      if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
+    }
+  }
+
+  function renderCard(d, i) {
+    const songLink = d.song
+      ? `<a href="${d.song}" target="_blank" class="blessing-song">♪ שיר</a>`
+      : '';
+    return `
+      <div class="blessing-card" style="animation-delay:${i * 0.07}s">
+        <div class="blessing-quote">"</div>
+        <p class="blessing-text">${escHtml(d.blessing)}</p>
+        <div class="blessing-footer">
+          <span class="blessing-name">${escHtml(d.name)}</span>
+          ${songLink}
+        </div>
+      </div>`;
+  }
+
+  function renderGalleryItems(items) {
+    if (!items.length) return '<div class="gallery-empty">הגלריה עוד מתמלאת...</div>';
+
+    const galleryItems = items.map((d, i) => renderGalleryItem(d, i)).join('');
+    const moreButton = items.length > GALLERY_INITIAL_COUNT
+      ? `<div class="gallery-more-wrap">
+          <button class="gallery-more-btn" type="button" onclick="toggleGallery(this)">
+            <span class="gallery-more-text">הצג את כל התמונות</span>
+            <span class="gallery-more-arrow">⌄</span>
+          </button>
+        </div>`
+      : '';
+
+    return galleryItems + moreButton;
+  }
+
+  function isHiddenBlessing(item) {
+    return HIDDEN_BLESSINGS.some(hidden =>
+      item.timestamp === hidden.timestamp && item.name === hidden.name
+    );
+  }
+
+  function renderGalleryItem(d, i) {
+    const photo = escAttr(d.photo);
+    const name = escHtml(d.name);
+    const extraClass = i >= GALLERY_INITIAL_COUNT ? ' is-extra' : '';
+    return `
+      <div class="gallery-item${extraClass}" style="animation-delay:${i*0.07}s" onclick="openLightbox('${photo}')">
+        <img src="${photo}" alt="${name}" loading="lazy">
+        <div class="gallery-name">${name}</div>
+      </div>`;
+  }
+
+  function toggleGallery(button) {
+    const grid = document.getElementById('gallery-grid');
+    const expanded = grid.classList.toggle('expanded');
+    button.querySelector('.gallery-more-text').textContent = expanded ? 'הצג פחות תמונות' : 'הצג את כל התמונות';
+  }
+
+  function renderSong(d, num) {
+    return `
+      <a href="${d.song}" target="_blank" class="playlist-item" style="animation-delay:${num * 0.07}s">
+        <span class="playlist-num">${String(num).padStart(2,'0')}</span>
+        <div class="playlist-icon">♪</div>
+        <div class="playlist-info">
+          <div class="playlist-sender">${escHtml(d.name)}</div>
+          <div class="playlist-link-text">${d.song}</div>
+        </div>
+        <span class="playlist-open">האזנה ←</span>
+      </a>`;
+  }
+
+
+  // ===== SUBMIT =====
+  async function submitForm() {
+    const name = document.getElementById('name').value.trim();
+    const blessing = document.getElementById('blessing').value.trim();
+    const song = document.getElementById('song').value.trim();
+    const photoFile = document.getElementById('photo-input').files[0];
+    const btn = document.getElementById('submit-btn');
+    const errEl = document.getElementById('error-msg');
+
+    errEl.style.display = 'none';
+
+    if (!name) { alert('נא להזין שם מלא'); return; }
+    if (!blessing) { alert('נא לכתוב ברכה'); return; }
+
+    if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'שולח...';
+
+    try {
+      const photo = await uploadPhotoToCloudinary(photoFile);
+      const payload = { name, blessing, song, photo };
+
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(payload)
+      });
+
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      setTimeout(() => loadBlessings(), 1500);
+    } catch (e) {
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'שלח את הברכה שלי';
+    }
+  }
+
+  function escHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function escAttr(str) {
+    return escHtml(str).replace(/'/g,'&#39;');
+  }
+
+  // load on start
+  loadBlessings();
+
+  // ===== NAVBAR =====
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>
