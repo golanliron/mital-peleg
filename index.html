@@ -932,6 +932,11 @@
   @media (max-width: 600px) {
     .form-wrap { padding: 32px 24px; }
     .blessings-grid { grid-template-columns: 1fr; }
+    .gallery-item .gallery-name {
+      font-size: 12px;
+      line-height: 1.25;
+      padding: 22px 8px 8px;
+    }
     .playlist-list {
       gap: 14px;
       margin-top: 34px;
@@ -1176,7 +1181,7 @@
 
 <!-- FOOTER -->
 <footer>
-  נבנה באהבה עבור מיטל פלג — יוני 2026
+  נבנה באהבה עבור מיטל פלג — מצוות אורט בית הערבה — יוני 2026
 </footer>
 
 <script>
@@ -1194,6 +1199,16 @@
       name: 'רגעים בלתי נשכחים',
       photo: `gallery/mital-gallery-${String(num).padStart(2, '0')}.jpg`
     }))
+  ];
+  const STATIC_SONGS = [
+    {
+      name: 'צוות אורט בית הערבה',
+      song: 'https://www.youtube.com/watch?v=UzlVFA9eu7Y&list=RDUzlVFA9eu7Y&start_radio=1'
+    },
+    {
+      name: 'צוות אורט בית הערבה',
+      song: 'https://www.youtube.com/watch?v=V-tLNtHResI&list=RDV-tLNtHResI&start_radio=1'
+    }
   ];
   const HIDDEN_GALLERY_PHOTOS = [
     'https://res.cloudinary.com/db0n9zxmr/image/upload/v1781163302/b5i4sxz2wwe8cppxc1rn.png'
@@ -1272,7 +1287,8 @@
 
     if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
       grid.innerHTML = '<div class="empty-state"><p>הברכות יופיעו כאן אחרי חיבור Google Sheets</p></div>';
-      playlistList.innerHTML = '<div class="playlist-empty">הפלייליסט יתמלא בקרוב...</div>';
+      playlistList.innerHTML = renderPlaylistItems(STATIC_SONGS);
+      hydratePlaylistMetadata();
       if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
       return;
     }
@@ -1285,15 +1301,16 @@
 
       if (!data.length) {
         grid.innerHTML = '<div class="empty-state"><p>עוד אין ברכות — היה הראשון!</p></div>';
-        playlistList.innerHTML = '<div class="playlist-empty">הפלייליסט עוד מתמלא...</div>';
+        playlistList.innerHTML = renderPlaylistItems(STATIC_SONGS);
+        hydratePlaylistMetadata();
         if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
         return;
       }
 
-      const withSong = data.filter(d => d.song && !HIDDEN_SONGS.includes(d.song));
+      const withSong = [...STATIC_SONGS, ...data.filter(d => d.song && !HIDDEN_SONGS.includes(d.song))];
       const withPhoto = data.filter(d => d.photo && !HIDDEN_GALLERY_PHOTOS.includes(d.photo));
       const cards = data.map((d, i) => renderCard(d, i)).join('');
-      const songs = withSong.map((d, i) => renderSong(d, i + 1)).join('');
+      const songs = renderPlaylistItems(withSong);
       const photos = renderGalleryItems([...STATIC_GALLERY, ...withPhoto]);
 
       grid.innerHTML = cards;
@@ -1303,7 +1320,8 @@
 
     } catch (e) {
       grid.innerHTML = '<div class="empty-state"><p>לא הצלחנו לטעון את הברכות כרגע</p></div>';
-      playlistList.innerHTML = '<div class="playlist-empty">לא הצלחנו לטעון את הפלייליסט כרגע</div>';
+      playlistList.innerHTML = renderPlaylistItems(STATIC_SONGS);
+      hydratePlaylistMetadata();
       if (galleryGrid) galleryGrid.innerHTML = renderGalleryItems(STATIC_GALLERY);
     }
   }
@@ -1360,6 +1378,12 @@
     const grid = document.getElementById('gallery-grid');
     const expanded = grid.classList.toggle('expanded');
     button.querySelector('.gallery-more-text').textContent = expanded ? 'הצג פחות תמונות' : 'הצג את כל התמונות';
+  }
+
+  function renderPlaylistItems(items) {
+    return items.length
+      ? items.map((d, i) => renderSong(d, i + 1)).join('')
+      : '<div class="playlist-empty">הפלייליסט עוד מתמלא...</div>';
   }
 
   function renderSong(d, num) {
