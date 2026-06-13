@@ -1056,6 +1056,8 @@
     }
     .journey-card img { height: 210px; }
     .journey-image-pair { height: 210px; }
+    .journey-card.journey-mobile-extra { display: none; }
+    .journey-grid.expanded .journey-card.journey-mobile-extra { display: block; }
     .journey-content { padding: 20px 20px 24px; }
     .journey-content h3 { font-size: 19px; }
     .journey-content p { font-size: 14px; }
@@ -1239,7 +1241,7 @@
         </div>
       </article>
 
-      <article class="journey-card">
+      <article class="journey-card journey-mobile-extra">
         <img src="gallery/mital-gallery-04.jpeg" alt="רגע מהדרך המשותפת">
         <div class="journey-content">
           <h3>לראות את האדם לפני הכול</h3>
@@ -1320,7 +1322,7 @@
         </div>
       </article>
 
-      <article class="journey-card">
+      <article class="journey-card journey-mobile-extra">
         <img src="gallery/mital-gallery-19.jpg" alt="רגע מהדרך המשותפת">
         <div class="journey-content">
           <h3>רגעים שהפכו לדרך</h3>
@@ -1476,6 +1478,7 @@
   const CLOUDINARY_CLOUD = 'db0n9zxmr';
   const CLOUDINARY_PRESET = 'mital_uploads';
   const GALLERY_INITIAL_COUNT = 8;
+  const GALLERY_MOBILE_INITIAL_COUNT = 4;
   const STATIC_GALLERY = [
     ...Array.from({ length: 6 }, (_, i) => ({
       name: 'רגעים בלתי נשכחים',
@@ -1496,7 +1499,7 @@
       song: 'https://www.youtube.com/watch?v=V-tLNtHResI&list=RDV-tLNtHResI&start_radio=1'
     },
     {
-      name: 'רוית גל',
+      name: 'רווית גל',
       song: 'https://www.youtube.com/watch?v=8yfWmcGlVn8'
     }
   ];
@@ -1634,8 +1637,9 @@
   function renderGalleryItems(items) {
     if (!items.length) return '<div class="gallery-empty">הגלריה עוד מתמלאת...</div>';
 
-    const galleryItems = items.map((d, i) => renderGalleryItem(d, i)).join('');
-    const moreButton = items.length > GALLERY_INITIAL_COUNT
+    const initialCount = getGalleryInitialCount();
+    const galleryItems = items.map((d, i) => renderGalleryItem(d, i, initialCount)).join('');
+    const moreButton = items.length > initialCount
       ? `<div class="gallery-more-wrap">
           <button class="gallery-more-btn" type="button" onclick="toggleGallery(this)">
             <span class="gallery-more-text">הצג את כל התמונות</span>
@@ -1653,10 +1657,16 @@
     );
   }
 
-  function renderGalleryItem(d, i) {
+  function getGalleryInitialCount() {
+    return window.matchMedia('(max-width: 600px)').matches
+      ? GALLERY_MOBILE_INITIAL_COUNT
+      : GALLERY_INITIAL_COUNT;
+  }
+
+  function renderGalleryItem(d, i, initialCount) {
     const photo = escAttr(d.photo);
     const name = escHtml(d.name);
-    const extraClass = i >= GALLERY_INITIAL_COUNT ? ' is-extra' : '';
+    const extraClass = i >= initialCount ? ' is-extra' : '';
     return `
       <div class="gallery-item${extraClass}" style="animation-delay:${i*0.07}s" onclick="openLightbox('${photo}')">
         <img src="${photo}" alt="${name}" loading="lazy">
